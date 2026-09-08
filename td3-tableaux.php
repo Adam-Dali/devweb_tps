@@ -8,14 +8,15 @@ $playlist = [
     "date" => "04/09/2026",
     "nbPistes" => 20,
     "duree" => 120,
+    "pistes" => [],
 ];
 
 //Exo 2
-function display(array $playlist) : string {
+/*function display(array $playlist) : string {
     return "playlist : " . $playlist["nom"] . " (" . $playlist["genre"] . ")
     par " . $playlist["createur"] . " le " . $playlist["date"] . "\n" . 
     $playlist["nbPistes"] . " pistes pour une durée totale de " . $playlist["duree"] . "s. \n" ;
-}
+}*/
 
 //print display($playlist);
 
@@ -73,6 +74,74 @@ function display_track(array $pisteAudio, string $affichage = "court") : string 
     return $aff;
 }
 
-print display_track($pisteAudio2, "étendu");
+//print display_track($pisteAudio2, "étendu");
+
+//Exo 5
+function play_track(array $pisteAudio) : string {
+    $aff = $pisteAudio["titre"] . " ";
+    $compt = 0;
+
+    for ($compt = 0; $compt <= $pisteAudio["duree"]; $compt++) {
+        $aff .= $compt . ".";
+    }
+    return $aff . "\n";
+}
+//print play_track($pisteAudio2);
+
+//Exo 6
+function add_tracks(array $playlist, array $pisteAudio) : array {
+    array_push($playlist["pistes"], $pisteAudio);
+    return $playlist;
+}
+
+//Exo 7
+
+function display(array $playlist) : string {
+    $st1 = "playlist : " . $playlist["nom"] . " (" . $playlist["genre"] . ")
+    par " . $playlist["createur"] . " le " . $playlist["date"] . "\n" . 
+    $playlist["nbPistes"] . " pistes pour une durée totale de " . $playlist["duree"] . "s. \n";
+
+    $st2 = "";
+    $compt = 1;
+
+    foreach($playlist["pistes"] as $p) {
+        $st2 .= $compt . " - " . display_track($p, "court") . " \n";
+        $compt++;
+    }
+    return $st1 . $st2;
+}
+
+$playU1 = add_tracks($playlist, $pisteAudio1);
+$playU2 = add_tracks($playU1, $pisteAudio2);
+$playU3 = add_tracks($playU2, $pisteAudio3);
+//print display($playU3);
+
+//Exo 8
+function play(array $playlist) : void {
+    foreach( $playlist["pistes"] as $piste) {
+        print play_track( $piste);
+    }
+}
+
+
+//Exo 9
+function remove_track(array $playlist, int $num) : array {
+    unset($playlist["pistes"][$num]);
+    return $playlist;
+    //$playlist["pistes"] = array_values($playlist["pistes"]);
+}
+
+$playU4 = remove_track($playU3, 0);
+//print display($playU4);
+
+//Exo 10
+
+function pl_shuffle($playlist) : array {
+    shuffle($playlist["pistes"]);
+    return $playlist;
+}
+
+$playU5 = pl_shuffle($playU3);
+print display($playU5);
 
 ?>
