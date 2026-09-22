@@ -1,13 +1,15 @@
 <?php
 //Exo 2
 require_once 'AudioTrack.php';
+require_once 'Renderer.php';
+require_once 'AudioTrackRenderer.php';
 require_once 'AlbumTrack.php';
 require_once 'AlbumTrackRenderer.php';
 require_once 'PodcastTrack.php';
-
+require_once 'PodcastRenderer.php';
 
 $ab = new AlbumTrack("The Cradle by Starlight", "4-21. The Cradle by Starlight.mp3", "Kai no Kiseki OST", 1);
-$ab->artiste = "Falcom Sound Team jdk";
+$ab->artiste = "Falcom Sound Team jdk | Yukihiro Jindo";
 $ab->date = "09/2024";
 $ab->duree = 240;
 
@@ -30,12 +32,13 @@ var_dump($ab->__toString()) . "\n";*/
 
 $render = new AlbumTrackRenderer($ab);
 $render2 = new AlbumTrackRenderer($ac);
-
+$render3 = new PodcastRenderer($ad);
 
 print $ac;
 print $ad;
 print $render->render(2);
 print $render2->render(2);
+print $render3->render(2);
 
 
 ?>
