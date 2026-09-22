@@ -9,19 +9,22 @@ require_once 'PodcastTrack.php';
 require_once 'PodcastRenderer.php';
 
 $ab = new AlbumTrack("The Cradle by Starlight", "4-21. The Cradle by Starlight.mp3", "Kai no Kiseki OST", 1);
-$ab->artiste = "Falcom Sound Team jdk | Yukihiro Jindo";
-$ab->date = "09/2024";
-$ab->duree = 240;
+$ab->setArtiste("Falcom Sound Team jdk | Yukihiro Jindo");
+$ab->setDate("09/2024");
+$ab->setDuree(240);
+$ab->setGenre("Beautiful");
 
 $ac = new AlbumTrack("Large Map", "1-12. Large Map.mp3", "Shin Megami Tensei IV Final OST", 2);
-$ac->artiste = "Atlus - Ryota Kozuka";
-$ac->date = "2016";
-$ac->duree = 140;
+$ac->setArtiste("Atlus | Ryota Kozuka");
+$ac->setDate("2016");
+$ac->setDuree(140);
+$ac->setGenre("Grand");
 
 $ad = new PodcastTrack("PasUnPodcastMaisCaPasseQuandMeme", "1-07. Feelings -re.mp3");
-$ad->date = "08/2021";
-$ad->duree = 140;
-$ad->auteur = "Type-Moon";
+$ad->setDate("08/2021");
+$ad->setDuree(240);
+$ad->setAuteur("Type-Moon");
+$ad->setGenre("piano");
 
 /*echo $ab . "\n";
 print $ab . "\n";

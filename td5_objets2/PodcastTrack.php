@@ -1,11 +1,15 @@
 <?php
 class PodcastTrack extends AudioTrack {
 
-    public string $auteur;
+    protected string $auteur;
 
     public function __construct(string $titre, string $cheminFichier) {
         parent::__construct($titre, $cheminFichier);
         $this->auteur = "";
+    }
+
+    public function setAuteur(string $auteur) : void {
+        $this->auteur = $auteur;
     }
 }
 

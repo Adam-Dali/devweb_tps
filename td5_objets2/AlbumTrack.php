@@ -3,28 +3,29 @@
 //Exo 1
 class AlbumTrack extends AudioTrack {
 
-    //public string $titre;
-    public string $artiste;
-    public string $album;
-    //public string $annee;
-    public int $numeroPiste;
-    //public string $genre;
-    //public int $duree;
-    //public string $nomFichier;
+    protected string $artiste;
+    protected string $album;
+    protected int $numeroPiste;
+
 
     public function __construct(string $titrePiste, string $cheminFichier, string $nomAlbum, int $numPiste) {
         parent::__construct($titrePiste, $cheminFichier);
         $this->artiste = "";
         $this->album = $nomAlbum;
-        //$this->date = "";
         $this->numeroPiste = $numPiste;
-        //$this->genre = "";
-        //$this->duree = 0;
     }
 
-    /*public function __toString() : string {
-        return json_encode(get_object_vars($this));
-    }*/
+    public function setArtiste(string $artiste) : void {
+        $this->artiste = $artiste;
+    }
+
+    public function setAlbum(string $album) : void {
+        $this->album = $album;
+    }
+
+    public function setNumero(int $num) : void {
+        $this->numeroPiste = $num;
+    }
 }
 
 
