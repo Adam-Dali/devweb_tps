@@ -9,6 +9,10 @@ require_once 'PodcastTrack.php';
 require_once 'PodcastRenderer.php';
 require_once 'InvalidPropertyNameException.php';
 require_once 'InvalidPropertyValueException.php';
+require_once 'AudioList.php';
+require_once 'Album.php';
+require_once 'Playlist.php';
+require_once 'AudioListRenderer.php';
 
 try {
     $ab = new AlbumTrack("The Cradle by Starlight", "4-21. The Cradle by Starlight.mp3", "Kai no Kiseki OST", 1);
@@ -40,11 +44,58 @@ try {
     $render2 = new AlbumTrackRenderer($ac);
     $render3 = new PodcastRenderer($ad);
 
-    print $ac;
+    $album = new Album(
+        "Video Games OST",
+        [$ab, $ac],
+    );
+
+    $album->setArtiste("Des bon gars");
+    $album->setDateSortie("2016 et 2024");
+
+    echo "Nom de l'album : " . $album->nom . "\n";
+    echo "Artiste : " . $album->artiste . "\n";
+    echo "Date de sortie : " . $album->dateSortie . "\n";
+    echo "Nombre de pistes : " . $album->nbPistes . "\n";
+    echo "Durée totale : " . $album->dureeTotale . " secondes\n";
+
+    $albumRenderer = new AudioListRenderer($album);
+
+
+    $playlist = new Playlist("Ma playlist");
+
+    $playlist->ajouterPiste($ab);
+    $playlist->ajouterPiste($ac);
+    $playlist->ajouterPiste($ad);
+
+    echo "Nom de la playlist : " . $playlist->nom . "\n";
+    echo "Nombre de pistes : " . $playlist->nbPistes . "\n";
+    echo "Durée totale : " . $playlist->dureeTotale . " secondes\n";
+
+
+    $playlist->retirerPiste(1);
+
+    echo "Après suppression :\n";
+    echo "Nombre de pistes : " . $playlist->nbPistes . "\n";
+    echo "Durée totale : " . $playlist->dureeTotale . " secondes\n";
+
+
+    $playlist->ajouterListeDePistes([$ab, $ac, $ad]);
+
+    echo "Après ajout de plusieurs pistes :\n";
+    echo "Nombre de pistes : " . $playlist->nbPistes . "\n";
+    echo "Durée totale : " . $playlist->dureeTotale . " secondes\n";
+
+    $playlistRenderer = new AudioListRenderer($playlist);
+
+
+    /*print $ac;
     print $ad;
     print $render->render(2);
     print $render2->render(2);
-    print $render3->render(2);
+    print $render3->render(2);*/
+    print $albumRenderer->render(2);
+    print $playlistRenderer->render(2);
+
 
 } catch(InvalidPropertyNameException $e){
     echo $e->getMessage();

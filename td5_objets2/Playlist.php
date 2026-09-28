@@ -7,9 +7,9 @@ class Playlist extends AudioList {
     }
 
     public function ajouterPiste($piste) : void {
-        $this->pistes = $piste;
+        $this->pistes[] = $piste;
         $this->nbPistes = count($this->pistes);
-        $this->nbPistes += $piste->duree;
+        $this->dureeTotale += $piste->duree;
     }
 
     public function retirerPiste(int $index) : void {
@@ -28,7 +28,6 @@ class Playlist extends AudioList {
             }
         }
     }
-
 
 }
 ?>

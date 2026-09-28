@@ -10,9 +10,7 @@ class AudioList {
         $this->nom = $name;
         $this->pistes = $tracks;
         $this->nbPistes = count($tracks);
-        if (count($tracks) == 0){
-            $this->dureeTotale = 0;
-        }
+        $this->dureeTotale = 0;
 
         foreach($tracks as $piste) {
             $this->dureeTotale += $piste->duree;
@@ -25,7 +23,7 @@ class AudioList {
                 "La propriété '$attrname' n'existe pas."
             );
         }
-        return $this->nom;
+        return $this->$attrname;
     }
 }
 ?>
