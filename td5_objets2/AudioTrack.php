@@ -1,4 +1,8 @@
 <?php
+
+require_once 'InvalidPropertyNameException.php';
+require_once 'InvalidPropertyValueException.php';
+
 class AudioTrack {
 
     protected string $titre;
@@ -20,7 +24,9 @@ class AudioTrack {
         if (property_exists($this, $attrname)) {
             return $this->$attrname;
         }
-        throw new Exception($attrname . " : invalid property");
+        else throw new InvalidPropertyNameException(
+            $attrname . " : existe pas"
+        );
     }
 
     public function setGenre(string $genre) : void {
@@ -28,6 +34,11 @@ class AudioTrack {
     }
 
     public function setDuree(int $duree) : void {
+        if($duree < 0){
+            throw new InvalidPropertyValueException(
+                $duree . ' est une valeur impossible pour ' . $this->titre
+            );
+        }
         $this->duree = $duree;
     }
 
