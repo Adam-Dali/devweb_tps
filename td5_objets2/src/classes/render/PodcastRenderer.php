@@ -1,4 +1,8 @@
 <?php
+namespace iutnc\deefy\render;
+use iutnc\deefy\audio\tracks\PodcastTrack;
+require_once __DIR__ . '/../audio/tracks/PodcastTrack.php';
+
 class PodcastRenderer extends AudioTrackRenderer {
 
     /*public PodcastTrack $podcastTrack;

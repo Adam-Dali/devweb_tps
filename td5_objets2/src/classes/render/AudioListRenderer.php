@@ -1,5 +1,14 @@
 <?php
-require_once 'AudioList.php';
+namespace iutnc\deefy\render;
+use iutnc\deefy\audio\lists\AudioList;
+use iutnc\deefy\audio\tracks\AlbumTrack;
+use iutnc\deefy\audio\tracks\PodcastTrack;
+require_once __DIR__ . '/../audio/lists/AudioList.php';
+require_once __DIR__ . '/../audio/tracks/AudioTrack.php';
+require_once __DIR__ . '/../audio/tracks/PodcastTrack.php';
+require_once __DIR__ . '/../audio/tracks/AlbumTrack.php';
+
+
 class AudioListRenderer implements Renderer {
 
     private AudioList $listeAudio;

@@ -1,4 +1,8 @@
 <?php
+namespace iutnc\deefy\audio\lists;
+use iutnc\deefy\exception\InvalidPropertyNameException;
+require_once __DIR__ . '/../../exception/InvalidPropertyNameException.php';
+
 class AudioList {
 
     protected string $nom;

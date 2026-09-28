@@ -1,5 +1,6 @@
 <?php
-
+namespace iutnc\deefy\audio\tracks;
+require_once 'AudioTrack.php';
 //Exo 1
 class AlbumTrack extends AudioTrack {
 

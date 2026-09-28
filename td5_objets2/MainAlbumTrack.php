@@ -1,18 +1,35 @@
 <?php
 //Exo 2
-require_once 'AudioTrack.php';
-require_once 'Renderer.php';
-require_once 'AudioTrackRenderer.php';
-require_once 'AlbumTrack.php';
-require_once 'AlbumTrackRenderer.php';
-require_once 'PodcastTrack.php';
-require_once 'PodcastRenderer.php';
-require_once 'InvalidPropertyNameException.php';
-require_once 'InvalidPropertyValueException.php';
-require_once 'AudioList.php';
-require_once 'Album.php';
-require_once 'Playlist.php';
-require_once 'AudioListRenderer.php';
+require_once 'src/classes/audio/tracks/AudioTrack.php';
+require_once 'src/classes/audio/tracks/AlbumTrack.php';
+require_once 'src/classes/audio/tracks/PodcastTrack.php';
+require_once 'src/classes/audio/lists/AudioList.php';
+require_once 'src/classes/audio/lists/Album.php';
+require_once 'src/classes/audio/lists/Playlist.php';
+require_once 'src/classes/render/Renderer.php';
+require_once 'src/classes/render/AudioTrackRenderer.php';
+require_once 'src/classes/render/AlbumTrackRenderer.php';
+require_once 'src/classes/render/PodcastRenderer.php';
+require_once 'src/classes/render/AudioListRenderer.php';
+require_once 'src/classes/exception/InvalidPropertyNameException.php';
+require_once 'src/classes/exception/InvalidPropertyValueException.php';
+
+use iutnc\deefy\audio\tracks\AudioTrack;
+use iutnc\deefy\audio\tracks\AlbumTrack;
+use iutnc\deefy\audio\tracks\PodcastTrack;
+
+use iutnc\deefy\audio\lists\AudioList;
+use iutnc\deefy\audio\lists\Album;
+use iutnc\deefy\audio\lists\Playlist;
+
+use iutnc\deefy\render\Renderer;
+use iutnc\deefy\render\AudioTrackRenderer;
+use iutnc\deefy\render\AlbumTrackRenderer;
+use iutnc\deefy\render\PodcastRenderer;
+use iutnc\deefy\render\AudioListRenderer;
+
+use iutnc\deefy\exception\InvalidPropertyNameException;
+use iutnc\deefy\exception\InvalidPropertyValueException;
 
 try {
     $ab = new AlbumTrack("The Cradle by Starlight", "4-21. The Cradle by Starlight.mp3", "Kai no Kiseki OST", 1);

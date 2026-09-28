@@ -1,5 +1,5 @@
 <?php
-
+namespace iutnc\deefy\audio\lists;
 require_once 'AudioList.php';
 class Album extends AudioList {
 

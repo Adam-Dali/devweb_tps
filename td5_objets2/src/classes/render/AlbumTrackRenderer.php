@@ -1,4 +1,8 @@
 <?php
+namespace iutnc\deefy\render;
+use iutnc\deefy\audio\tracks\AlbumTrack;
+require_once __DIR__ . '/../audio/tracks/AlbumTrack.php';
+
 //Exo 3
 class AlbumTrackRenderer extends AudioTrackRenderer {
 
