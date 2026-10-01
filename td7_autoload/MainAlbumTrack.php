@@ -13,10 +13,13 @@ require_once 'src/classes/iutnc/deefy/render/PodcastRenderer.php';
 require_once 'src/classes/iutnc/deefy/render/AudioListRenderer.php';
 require_once 'src/classes/iutnc/deefy/exception/InvalidPropertyNameException.php';
 require_once 'src/classes/iutnc/deefy/exception/InvalidPropertyValueException.php';*/
-require_once 'src/loader/Psr4ClassLoader.php';
 
+/*require_once 'src/loader/Psr4ClassLoader.php';
 $loader = new Psr4ClassLoader("iutnc\\deefy\\", "src/classes");
-$loader->register();
+$loader->register();*/
+
+require_once 'vendor/autoload.php';
+
 
 use iutnc\deefy\audio\tracks\AudioTrack;
 use iutnc\deefy\audio\tracks\AlbumTrack;
