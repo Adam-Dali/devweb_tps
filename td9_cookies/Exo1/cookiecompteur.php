@@ -1,5 +1,4 @@
 <?php
-
 if(isset($_COOKIE['cliquer'])){
     $compteur = (int) $_COOKIE['cliquer'];
     $compteur++;
