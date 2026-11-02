@@ -144,7 +144,7 @@ try {
     $dispatcher->addRoute('playlist', DisplayPlaylistAction::class);
     $dispatcher->addRoute('add-playlist', AddPlaylistAction::class);
     $dispatcher->addRoute('add-track', AddPodcastTrackAction::class);
-    $dispatcher->addRoute('add_user', AddUserAction::class);
+    $dispatcher->addRoute('add-user', AddUserAction::class);
 
     $dispatcher->run();
 

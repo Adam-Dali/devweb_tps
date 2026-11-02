@@ -80,7 +80,7 @@ class Dispatcher {
 
             <nav>
                 <a href="?action=default">Accueil</a>
-                <a href="?action=default">Inscription</a>
+                <a href="?action=add-user">Inscription</a>
                 <a href="?action=add-playlist">Créer une playlist</a>
             </nav>
 
