@@ -46,8 +46,11 @@ use iutnc\deefy\action\AddPodcastTrackAction;
 use iutnc\deefy\action\DefaultAction;
 use iutnc\deefy\action\DisplayPlaylistAction;
 use iutnc\deefy\action\AddUserAction;
+use \iutnc\deefy\action\DisplayPlaylistsAction;
 
 use iutnc\deefy\dispatch\Dispatcher;
+
+\iutnc\deefy\repository\DeefyRepository::setConfig( __DIR__ . '/src/config/deefy.db.ini');
 
 try {
     $ab = new AlbumTrack("The Cradle by Starlight", "4-21. The Cradle by Starlight.mp3", "Kai no Kiseki OST", 1);
@@ -145,6 +148,7 @@ try {
     $dispatcher->addRoute('add-playlist', AddPlaylistAction::class);
     $dispatcher->addRoute('add-track', AddPodcastTrackAction::class);
     $dispatcher->addRoute('add-user', AddUserAction::class);
+    $dispatcher->addRoute('playlists',DisplayPlaylistsAction::class);
 
     $dispatcher->run();
 
